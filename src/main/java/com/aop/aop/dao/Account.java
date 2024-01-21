@@ -1,4 +1,4 @@
-package com.aop.aop.dto;
+package com.aop.aop.dao;
 
 public class Account {
     private String name;

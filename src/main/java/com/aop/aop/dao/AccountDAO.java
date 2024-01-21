@@ -1,6 +1,8 @@
-package com.aop.aop.dto;
+package com.aop.aop.dao;
 
-public interface MembershipDAO {
+import com.aop.aop.dao.Account;
+
+public interface AccountDAO {
 
     void addAccount();
 

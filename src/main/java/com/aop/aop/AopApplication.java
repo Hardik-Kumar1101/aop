@@ -1,7 +1,9 @@
 package com.aop.aop;
 
-import com.aop.aop.dto.Account;
-import com.aop.aop.dto.AccountDAO;
+import com.aop.aop.dao.Account;
+import com.aop.aop.dao.AccountDAO;
+import com.aop.aop.dao.Student;
+import com.aop.aop.services.StudentDAO;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,12 +17,18 @@ public class AopApplication {
 	}
 
 	@Bean
-	public CommandLineRunner commandLineRunner (AccountDAO accountDAO){
+	public CommandLineRunner commandLineRunner (AccountDAO accountDAO, StudentDAO studentDAO){
 		return args ->{
 
 			//call the business method
-			demoTheBeforeAdvice(accountDAO);
+//			demoTheBeforeAdvice(accountDAO);
+			demoTheStudentAdvice(studentDAO);
 		};
+	}
+
+	private void demoTheStudentAdvice(StudentDAO studentDAO) {
+		Student student = studentDAO.addStudent("sanjay", "varsh");
+		System.out.println(student);
 	}
 
 	private void demoTheBeforeAdvice(AccountDAO accountDAO) {
